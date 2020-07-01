@@ -1,10 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.refineNamespacedPath = exports.getClassPath = exports.toCamelCase = void 0;
 function toCamelCase(str) {
     return str[0].toLocaleLowerCase() + str.substring(1);
 }
 exports.toCamelCase = toCamelCase;
 function getClassPath(path) {
+    if (!path) {
+        return '';
+    }
     var arr = path.split("/");
     return arr[arr.length - 1];
 }

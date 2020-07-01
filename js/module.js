@@ -83,9 +83,9 @@ export function extractVuexModule(cls) {
     var vuexModule = {
         namespaced: VuexClass.prototype.__options__ && VuexClass.prototype.__options__.namespaced ? true : false,
         state: fromInstance.state,
-        mutations: __assign({}, fromPrototype.mutations.explicitMutations, fromPrototype.mutations.setterMutations, (_a = {}, _a["__" + className + "_internal_mutator__"] = internalMutator, _a)),
-        getters: __assign({}, fromPrototype.getters, fromInstance.getters, (_b = {}, _b["__" + className + "_internal_getter__"] = internalGetter, _b)),
-        actions: __assign({}, fromPrototype.actions, (_c = {}, _c["__" + className + "_internal_action__"] = internalAction, _c)),
+        mutations: __assign(__assign(__assign({}, fromPrototype.mutations.explicitMutations), fromPrototype.mutations.setterMutations), (_a = {}, _a["__" + className + "_internal_mutator__"] = internalMutator, _a)),
+        getters: __assign(__assign(__assign({}, fromPrototype.getters), fromInstance.getters), (_b = {}, _b["__" + className + "_internal_getter__"] = internalGetter, _b)),
+        actions: __assign(__assign({}, fromPrototype.actions), (_c = {}, _c["__" + className + "_internal_action__"] = internalAction, _c)),
         modules: fromInstance.submodules,
     };
     // Cache the vuex module on the class.
@@ -96,8 +96,10 @@ export function extractVuexModule(cls) {
 }
 export function getNamespacedPath(cls) {
     var namespaced = cls.prototype.__options__ && cls.prototype.__options__.namespaced;
-    if (namespaced)
-        cls.prototype.__namespacedPath__ = namespaced.split("/")[0];
+    if (namespaced) {
+        var namePaths = namespaced.split("/");
+        cls.prototype.__namespacedPath__ = namePaths[namePaths.length - 1] || namePaths[namePaths.length - 2];
+    }
     return cls.prototype.__namespacedPath__;
 }
 function extractModulesFromInstance(cls) {
