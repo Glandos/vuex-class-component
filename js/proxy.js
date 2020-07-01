@@ -235,7 +235,7 @@ function createGettersAndMutationProxyFromState(_a) {
         if (currentField.length && !currentField.endsWith("."))
             currentField += ".";
         var path = currentField + field;
-        if (maxDepth === 0 || typeof value !== 'object' || value === null) {
+        if (maxDepth === 0 || typeof value !== 'object' || value === null || Array.isArray(value)) {
             var getter = function () {
                 // When creating local proxies getters doesn't exist on that context, so we have to account
                 // for that.
