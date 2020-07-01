@@ -24,19 +24,19 @@
   "author": "michaelolof",
   "license": "ISC",
   "devDependencies": {
-    "@types/jest": "^24.0.11",
-    "@vue/test-utils": "^1.0.0-beta.29",
-    "jest": "^24.5.0",
-    "ts-jest": "^24.0.0",
-    "ts-loader": "^5.3.1",
-    "typescript": "^3.2.2",
-    "vue": "^2.6.10",
-    "vue-template-compiler": "^2.6.10",
-    "vuex": "^3.1.0",
-    "webpack": "^4.28.0"
+    "@types/jest": "^24.9.1",
+    "@vue/test-utils": "^1.0.3",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.3.0",
+    "ts-loader": "^5.4.5",
+    "typescript": "^3.9.5",
+    "vue": "^2.6.11",
+    "vue-template-compiler": "^2.6.11",
+    "vuex": "^3.5.1",
+    "webpack": "^4.43.0"
   },
   "dependencies": {
-    "object.getownpropertydescriptors": "^2.0.3",
-    "rimraf": "^2.6.3"
+    "object.getownpropertydescriptors": "^2.1.0",
+    "rimraf": "^2.7.1"
   }
 }
